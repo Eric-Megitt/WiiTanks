@@ -1,0 +1,355 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1696078714154988057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1696078714154988063}
+  - component: {fileID: 1696078714154988062}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioSource
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1696078714154988063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696078714154988057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1696078714154988062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696078714154988057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b2021fc424acb49b7e35947782dd89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeList:
+  - name: SimpleFade
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.042747
+        outSlope: 1.042747
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.061068714
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - name: Ex
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - name: Log
+    fadeCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  musicAudioSources:
+  - name: TitleScreenTrack
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: d61f292edb7e45a43abd86f286ebf7d1, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+  - name: CaveAmbience
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6904340754c73904aba05cc3e17f14a1, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+  - name: FinalBossTrackIntro
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 2a61f7ba8319ac34a838e153f024e94a, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+  - name: FinalBossTrack
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 8b22e0fc9b14eed4ebc1deda1a20b84a, type: 3}
+    volume: 0.15
+    pitch: 1
+    loop: 1
+  - name: CreditTrack
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 58047a8e4ae3c674a91d8588d8180ffa, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+  - name: ForestTrackIntro
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: cded60513a7101241ae6771e3e98d645, type: 3}
+    volume: 0.035
+    pitch: 1
+    loop: 0
+  - name: ForestTrack
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 74daa2ca3ebd08d459773e07d09c960e, type: 3}
+    volume: 0.07
+    pitch: 1
+    loop: 1
+  sfxAudioSources:
+  - name: Jump
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 9a67b4f7787d903489d34ba1e0528e52, type: 3}
+    volume: 0.554
+    pitch: 0.75
+    loop: 0
+    pitchVariation: 0
+  - name: Land
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 8f565ad4d8738ac419ac457cdb424fd4, type: 3}
+    volume: 0.25
+    pitch: 0.47
+    loop: 0
+    pitchVariation: 0
+  - name: Dash
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 8b7dcc3b115ef92479a43113553a3341, type: 3}
+    volume: 0.5
+    pitch: 0.5
+    loop: 0
+    pitchVariation: 0
+  - name: DeathThud
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 4124fbe73e5a01b41b08adc3607c1127, type: 3}
+    volume: 0.5
+    pitch: 0.7
+    loop: 0
+    pitchVariation: 0
+  - name: SimpleShoot
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 4a24a5323065dfe4babb2e92df888ecc, type: 3}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    pitchVariation: 0.2
+  - name: ChargeUp
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 1e041dae48c1b8848b1f20c1159fb4ec, type: 3}
+    volume: 0.4
+    pitch: 1
+    loop: 1
+    pitchVariation: 0
+  - name: ChargeShoot
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: e1207205d805b574ab5065223d4b4823, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    pitchVariation: 0
+  - name: Impact
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 5ee81e8a75d97e644addb5bc7827b1f3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    pitchVariation: 0
+  - name: Charge_Lava
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 28713fcac100a0741895fe962e14f835, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    pitchVariation: 0
+  - name: ChargeLaserRain
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: fe334dd3f46977b48b8a83c88ef704e7, type: 3}
+    volume: 0.35
+    pitch: 0.5
+    loop: 0
+    pitchVariation: 0
+  - name: ChargeUpLaserRain
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 1e041dae48c1b8848b1f20c1159fb4ec, type: 3}
+    volume: 0.65
+    pitch: 0.75
+    loop: 1
+    pitchVariation: 0
+  - name: BossBullets
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 165bff4b7f9e3644f80db8a49ee5a711, type: 3}
+    volume: 0.2
+    pitch: 0.8
+    loop: 0
+    pitchVariation: 0
+  - name: ChargeAsh
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: c1be2c1cb71cba14f95ff9fe00dad917, type: 3}
+    volume: 0.35
+    pitch: 0.5
+    loop: 0
+    pitchVariation: 0
+  - name: OpenBook
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 9818bb91a6a955249b1fd213e2e26518, type: 3}
+    volume: 1
+    pitch: 0.45
+    loop: 0
+    pitchVariation: 0
+  - name: CloseBook
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: af3922d9b93e06543bce659332abacf9, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    pitchVariation: 0
+  - name: PageFlipBook
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 65f96ebe04ac4484781e2242d76dfd2a, type: 3}
+    volume: 0.312
+    pitch: 0.45
+    loop: 0
+    pitchVariation: 0
+  - name: Charge_Impact
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 5ee81e8a75d97e644addb5bc7827b1f3, type: 3}
+    volume: 0
+    pitch: 0.73
+    loop: 0
+    pitchVariation: 0
+  - name: Final_HandHitGround
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: ffa5acbc32dcbd6449a0a53fa8c1b4b0, type: 3}
+    volume: 0
+    pitch: 0.2
+    loop: 0
+    pitchVariation: 0
+  - name: Final_HandSlideThrouhAir
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 8b7dcc3b115ef92479a43113553a3341, type: 3}
+    volume: 0
+    pitch: 0.53
+    loop: 0
+    pitchVariation: 0
+  - name: Final_HandFistbump
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 5ee81e8a75d97e644addb5bc7827b1f3, type: 3}
+    volume: 0
+    pitch: 0.92
+    loop: 0
+    pitchVariation: 0
+  - name: Final_SpawnEnemy
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 1e041dae48c1b8848b1f20c1159fb4ec, type: 3}
+    volume: 0
+    pitch: 1.3
+    loop: 1
+    pitchVariation: 0
+  - name: Flying_Shoot
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 165bff4b7f9e3644f80db8a49ee5a711, type: 3}
+    volume: 0
+    pitch: 0.99
+    loop: 0
+    pitchVariation: 0
+  - name: Flying_Death
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: c1be2c1cb71cba14f95ff9fe00dad917, type: 3}
+    volume: 0
+    pitch: 0.81
+    loop: 1
+    pitchVariation: 0
+  - name: Crawling_Death
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 57027deded2f098428c425d9ef8c1f52, type: 3}
+    volume: 0
+    pitch: 0.81
+    loop: 0
+    pitchVariation: 0
+  - name: Crawling_Death
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: a72407af4d8d27740bdb969c7f576142, type: 3}
+    volume: 0
+    pitch: 1.09
+    loop: 0
+    pitchVariation: 0
+  - name: Final_Impact
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 5ee81e8a75d97e644addb5bc7827b1f3, type: 3}
+    volume: 0
+    pitch: 0.57
+    loop: 0
+    pitchVariation: 0
+  - name: Final_CaveIn
+    audioSource: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: aa95fd669ec972846a929839de7936eb, type: 3}
+    volume: 0
+    pitch: 0.81
+    loop: 0
+    pitchVariation: 0

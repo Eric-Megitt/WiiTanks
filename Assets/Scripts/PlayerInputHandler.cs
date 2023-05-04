@@ -113,6 +113,10 @@ public class PlayerInputHandler : MonoBehaviour
                     playerMovementReference.IsMoving = false;
                 }
             }
+            else
+            {
+                turretControllerReference.ShootAttackInput(context);
+            }
         }
     }
 
