@@ -12,7 +12,7 @@ public class EnemyMovementBT : BehaviourTree.Tree
 	[SerializeField] float moveSpeed = 5f;
 	[SerializeField] float rotationSpeed = 5f;
 
-	Vector3 TargetPos => PlayerMovement.Instance.transform.position;
+	Vector3 TargetPos => FindObjectOfType<PlayerMovement>().transform.position;
 
 
 

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 using ScottsEssentials;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
 	[Header("Movement")]
 	[SerializeField] float moveSpeed = 5f;
@@ -18,25 +18,32 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
 	bool canMove = true;
 
-	Rigidbody _rigidbody;
+	private bool isMoving;
+	public bool IsMoving { get => isMoving; set => isMoving = value; }
+
+    private Vector2 movement;
+	public Vector2 Movement { set => movement = value; }
+
+    Rigidbody _rigidbody;
 
 	Vector3 moveVector;
-
-	protected override void WakeUp()
-	{
-		inputActions = new PlayerInput();
-	}
+	TurretController turretController;
 
 	void Start()
 	{
 		_rigidbody = GetComponent<Rigidbody>();
-	}
+        turretController = GetComponentInChildren<TurretController>();
+    }
 
 	private void FixedUpdate()
 	{
 		GetMoveVector();
 		Move(Time.fixedDeltaTime);
-	}
+        if (!isMoving)
+        {
+            _rigidbody.velocity = Vector3.zero;
+        }
+    }
 
 	void Move(float timeSinceLastCalled)
 	{
@@ -45,7 +52,13 @@ public class PlayerMovement : Singleton<PlayerMovement>
 		if (!canMove)
 			return;
 
-		if (accelerationTimer < accelerationTime)
+        if (!isMoving)
+		{
+			_rigidbody.velocity = Vector3.zero;
+            return;
+        }
+
+        if (accelerationTimer < accelerationTime)
 		{
 			_rigidbody.velocity = (new Vector3(moveVector.x, 0, moveVector.z) * accelerationCurve.Evaluate((float)accelerationTimer / (float)accelerationTime)) + new Vector3(0, _rigidbody.velocity.y, 0);
 			accelerationTimer = Mathf.Clamp(accelerationTimer + (int)(timeSinceLastCalled * 1000), 0, accelerationTime);
@@ -56,7 +69,10 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
 	void Rotate()
 	{
-		if (moveVector != Vector3.zero)
+        if (turretController.IsAiming)
+            return;
+
+        if (moveVector != Vector3.zero)
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(moveVector), rotationSpeed);
 
 		canMove = transform.rotation == Quaternion.LookRotation(moveVector);
@@ -64,23 +80,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
 
 	void GetMoveVector()
 	{
-		moveVector = movement.ReadValue<Vector2>() * moveSpeed;
+		moveVector = movement * moveSpeed;
 		moveVector = new(moveVector.x, 0f, moveVector.y);
 	}
-
-	#region InputSystem
-	PlayerInput inputActions;
-	InputAction movement;
-
-	void OnEnable()
-	{
-		movement = inputActions.Player.Movement;
-		movement.Enable();
-	}
-
-	void OnDisable()
-	{
-		movement.Disable();
-	}
-	#endregion InputSystem
 }

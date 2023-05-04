@@ -5,35 +5,23 @@ public class TurretController : MonoBehaviour
 {
 	[SerializeField] float rotationSpeed = 5f;
 
-	Vector2 aimVector;
+    Vector2 aim;
+	public Vector2 Aim { set => aim = value; }
 
-	void Awake()
-	{
-		inputActions = new PlayerInput();
-	}
+	private bool isAiming;
+    public bool IsAiming { get => isAiming; set => isAiming = value; }
 
 	private void FixedUpdate()
 	{
-		aimVector = aim.ReadValue<Vector2>(); // keep the same worldRotation when hull is rotated
-
-
-		if (aimVector != Vector2.zero)
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new(aimVector.x, 0, aimVector.y)), rotationSpeed);
+		Rotate();
 	}
 
-	#region InputSystem
-	PlayerInput inputActions;
-	InputAction aim;
-
-	void OnEnable()
+	private void Rotate()
 	{
-		aim = inputActions.Player.Aim;
-		aim.Enable();
-	}
+        if (!isAiming)
+            return;
 
-	void OnDisable()
-	{
-		aim.Disable();
-	}
-	#endregion InputSystem
+        if (aim != Vector2.zero)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(new(aim.x, 0, aim.y)), rotationSpeed);
+    }
 }
