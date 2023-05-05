@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4978530640756141851}
   - component: {fileID: 4978530640756141850}
   - component: {fileID: 4978530640756141849}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7fb962953ce320043927bc2071e3d2b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 4978530642654960308}
   - component: {fileID: 4978530642654960314}
   - component: {fileID: -7132458688578117880}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'Player '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,15 +412,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7399910969972063704, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.b
-      value: 0.20000002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910969972063704, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.g
-      value: 0.1764706
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910969972063704, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.r
-      value: 0.16470589
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910970660446726, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_AnchorMax.x
@@ -432,15 +432,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7399910970674450489, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.b
-      value: 0.3301887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910970674450489, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.g
-      value: 0.3125371
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910970674450489, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Color.r
-      value: 0.3037113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7399910971340497603, guid: 94a5e53299ffdd7459c98432f490ac57, type: 3}
       propertyPath: m_Name

@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 		Move(Time.fixedDeltaTime);
         if (!isMoving)
         {
-            _rigidbody.velocity = Vector3.zero;
+            movement = Vector3.zero;
         }
     }
 
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isMoving)
 		{
-			_rigidbody.velocity = Vector3.zero;
+			movement = Vector3.zero;
             return;
         }
 
