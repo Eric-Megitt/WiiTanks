@@ -15,7 +15,6 @@ public class TurretController : MonoBehaviour
 
     [Header("Shooting Variables")]
     [SerializeField] private GameObject firePoint;
-    [SerializeField] private float timeToStartCharging = 0.2f;
     [SerializeField] private float bulletForce;
     [SerializeField] private float bulletSpread;
     [SerializeField] private float bulletChargingTime;
@@ -23,13 +22,11 @@ public class TurretController : MonoBehaviour
     [SerializeField] private Slider bulletSlider;
     [SerializeField] private Image bulletSliderFill;
     [SerializeField] private ObjectPool bulletPool;
-    [SerializeField] private float screenShakeForce;
     [SerializeField] private float shootScreenShakeForce;
     [SerializeField] private float shootScreenShakeLength;
-    private float timeToStartChargingTimer;
+    [SerializeField] private float chargingScreenShakeForce;
     private float bulletChargingTimer;
     private float bulletCooldownTimer;
-    private Coroutine timeToChargeCoroutine;
     private bool isCharging;
 
     private void Update()
@@ -59,16 +56,10 @@ public class TurretController : MonoBehaviour
         {
             if (bulletChargingTimer < bulletChargingTime)
             {
+                ScreenShakeController.Instance.StartShake(bulletChargingTime, Time.deltaTime);
                 bulletChargingTimer += Time.deltaTime;
             }
         }
-
-        //Time until charging timer
-        if (timeToStartChargingTimer > 0)
-        {
-            timeToStartChargingTimer -= Time.deltaTime;
-        }
-
     }
 
     /// <summary>
@@ -131,53 +122,28 @@ public class TurretController : MonoBehaviour
         {
             if (context.performed)
             {
-                //Start timer to see if player is charging
-                timeToStartChargingTimer = timeToStartCharging;
-                timeToChargeCoroutine = StartCoroutine("TimeToCharge");
+                if(bulletCooldownTimer <= 0)
+                {
+                    isCharging = true;
+                }
             }
             else if (context.canceled)
             {
                 if (isCharging)
                 {
-                    if (timeToChargeCoroutine != null)
-                    {
-                        //if player hasn't held shoot long enough (is simple shooting)
-                        StopCoroutine(timeToChargeCoroutine);
-                        timeToChargeCoroutine = null;
-                    }
                     if (bulletChargingTimer >= bulletChargingTime)
                     {
                         //If player has charged up attack
                         BulletAttack(bulletPool.GetPooledObject(true), bulletSpread, bulletForce);
+                        ScreenShakeController.Instance.StartShake(shootScreenShakeLength, shootScreenShakeForce);
                         //AudioManager.Instance.StartSound("ChargeShoot");
                         bulletCooldownTimer = bulletCooldownTime;
                     }
-
                     isCharging = false;
                     bulletChargingTimer = 0;
                 }
-                else
-                {
-                    if (timeToChargeCoroutine != null)
-                    {
-                        StopCoroutine(timeToChargeCoroutine);
-                        timeToChargeCoroutine = null;
-                    }
-                }
             }
         }
-    }
-
-    /// <summary>
-    /// Time until player can charge
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator TimeToCharge()
-    {
-        yield return new WaitUntil(() => (timeToStartChargingTimer <= 0 && bulletCooldownTimer <= 0));
-        isCharging = true;
-        StopCoroutine(timeToChargeCoroutine);
-        timeToChargeCoroutine = null;
     }
 
     /// <summary>
@@ -203,11 +169,5 @@ public class TurretController : MonoBehaviour
         var MovementDirection = new Vector3(Mathf.Cos(rotateAngle * Mathf.Deg2Rad), 0, Mathf.Sin(rotateAngle * Mathf.Deg2Rad)).normalized;
 
         bulletRigidbody.velocity = MovementDirection * bulletForce;
-    }
-
-    private IEnumerator DeactivateBulletEffect(GameObject bulletEffect, float time)
-    {
-        yield return new WaitForSeconds(time);
-        bulletEffect.SetActive(false);
     }
 }

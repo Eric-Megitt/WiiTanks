@@ -222,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 5
   firePoint: {fileID: 1482253359550310928}
-  timeToStartCharging: 0.2
   bulletForce: 75
   bulletSpread: 15
   bulletChargingTime: 3
@@ -230,9 +229,9 @@ MonoBehaviour:
   bulletSlider: {fileID: 2251867960962744831}
   bulletSliderFill: {fileID: 2251867961616074074}
   bulletPool: {fileID: 2931291553834221330}
-  screenShakeForce: 0
-  shootScreenShakeForce: 0
-  shootScreenShakeLength: 0
+  shootScreenShakeForce: 0.25
+  shootScreenShakeLength: 0.1
+  chargingScreenShakeForce: 0.05
 --- !u!1 &4978530642654960313
 GameObject:
   m_ObjectHideFlags: 0
