@@ -34,7 +34,10 @@ public class PlayerInputHandler : MonoBehaviour
     public void InitializePlayer(PlayerConfiguration pc)
     {
         playerConfig = pc;
-        GetComponent<Renderer>().material.color = pc.PlayerColor;
+        foreach (var childRenderer in GetComponentsInChildren<Renderer>())
+        {
+            childRenderer.material.color = pc.PlayerColor;
+        }
         playerConfig.Input.onActionTriggered += Input_onActionTriggered;
         playerControls.PlayerMovement.Enable();
     }

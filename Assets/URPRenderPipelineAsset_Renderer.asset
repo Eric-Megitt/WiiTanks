@@ -75,11 +75,11 @@ MonoBehaviour:
     m_Bits: 55
   outlineSettings:
     outlineColor: {r: 0, g: 0, b: 0, a: 1}
-    outlineScale: 1.26
-    depthThreshold: 0.4
-    robertsCrossMultiplier: 196
-    normalThreshold: 0.373
-    steepAngleThreshold: 1.319
+    outlineScale: 0.71
+    depthThreshold: 0.6
+    robertsCrossMultiplier: 500
+    normalThreshold: 0.17
+    steepAngleThreshold: 2
     steepAngleMultiplier: 500
   viewSpaceNormalsTextureSettings:
     colorFormat: 0
